@@ -1,0 +1,31 @@
+<div class="container">
+    <button (click)="createUser()" class="btn blue-btn mb-10">Create User</button>
+    <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Company Name</th>
+            <th>Email</th>
+            <th>Contact No</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of userList; let i = index">
+            <td>{{user.uname}}</td>
+            <td>{{user.companyName}}</td>
+            <td>{{user.emailID}}</td>
+            <td>{{user.contactNumber}}</td>
+            <td>
+                <a href="javascript:void(0)" (click)="userDetails(user.id)">Details</a><span class="px-5">|</span>
+              <a href="javascript:void(0)" (click)="editUser(user.id)">Edit</a><span class="px-5">|</span>
+              <a href="javascript:void(0)" (click)="deleteUser(i, user.uname)">Delete</a>
+            </td>
+          </tr>
+          <tr *ngIf="!userList || userList.length===0">
+            <td colspan="6"><h5 style="text-align: center">No Records found!</h5></td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+

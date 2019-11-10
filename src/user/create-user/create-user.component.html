@@ -1,0 +1,27 @@
+<div class="container">
+  <h2>{{user?'Edit':'Create'}} User</h2><hr>
+  <form [formGroup]="userForm" (ngSubmit)="addUser()">
+    <div class="mt-6">
+      <label for="uname">Name:</label><br>
+      <input type="text" placeholder="Enter Name" id="uname" formControlName="uname">
+    </div>
+    <div class="mt-6">
+      <label for="cname">Company Name:</label><br>
+      <input type="text" placeholder="Enter Company Name" id="cname" formControlName="companyName">
+    </div>
+    <div class="mt-6">
+      <label for="email">Email:</label><br>
+      <input type="text" placeholder="Enter valid email ID" id="email" formControlName="emailID">
+    </div>
+    <div class="mt-6">
+      <label for="cno">Contact No:</label><br>
+      <input type="text" placeholder="Enter Contanct No" id="cno" formControlName="contactNumber">
+    </div>
+    <div class="mt-6">
+      <label for="designation">Designation:</label><br>
+      <input type="text" placeholder="Enter Designation" id="designation" formControlName="designation">
+    </div>
+    <button type="submit" [disabled]="!userForm.valid" class="btn blue-btn mt-6">{{user?'Edit':'Add'}} User</button>
+    <button class="ml-10 mt-6" (click)="cancelAddUser()">Cancel</button>
+  </form>
+</div>
